@@ -46,5 +46,20 @@ void loop() {
   potValue = map(potValue, 0, 1023, 0, 180);   // scale it to use it with the servo library (value between 0 and 180)
   // ESC.write(potValue);    // Send the signal to the ESC
   ESC.write(120);
+  delay(4000);
+  ESC.write(0);
+  delay(4000);
+  
   m2.write(120);
+  delay(5000);
+  m2.write(0);
+  delay(5000);
+
+  ESC.write(120);
+  m2.write(120);
+  delay(5000);
+  ESC.write(0);
+  m2.write(0);
+
+  delay(5000);
 }
