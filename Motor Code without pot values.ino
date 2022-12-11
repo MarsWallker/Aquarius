@@ -1,7 +1,7 @@
 #include <Servo.h>
 
-Servo ESC;     // create servo object to control the ESC
-Servo m2;
+Servo m1;     // create servo object to control the ESC
+Servo m3;
 
 int potValue;  // value from the analog pin
 
@@ -48,7 +48,9 @@ void loop() {
   m1.write(120);
   delay(3000);
   m1.write(0);
-  delay(1000);
+  delay(2000);
+
+//time to take data
   
   m3.write(120);
   delay(5000);
