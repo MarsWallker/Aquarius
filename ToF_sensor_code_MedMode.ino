@@ -1,8 +1,3 @@
-//#include <VL53L1_register_map.h>
-//#include <VL53L1X.h>
-
-//#include <VL53L1X.h>
-
 /*
   Reading distance from the laser based VL53L1X
   By: kaloha
@@ -20,11 +15,15 @@ void setup()
 {
   Wire.begin();
   Wire.setClock(400000); // use 400 kHz I2C
-  //Serial.println("TESTING MUST OCCUR");
+
   Serial.begin(115200);
-  //Serial.println("VL53L1X Distance Sensor tests in medium distance mode(up to 3m).");
-  Distance_Sensor.setTimeout(1000);
-  
+  Serial.println("VL53L1X Distance Sensor tests in medium distance mode(up to 3m).");
+  Distance_Sensor.setTimeout(500);
+  if (!Distance_Sensor.init())
+  {
+    Serial.println("Failed to initialize VL53L1X Distance_Sensor!");
+    while (1);
+  }
   
   // Use long distance mode and allow up to 50000 us (50 ms) for a measurement.
   // You can change these settings to adjust the performance of the sensor, but
@@ -41,7 +40,6 @@ void setup()
 void loop()
 {
   Distance_Sensor.read();
-  
   Serial.print("Distance(mm): ");
   Serial.print(Distance_Sensor.ranging_data.range_mm);
    Serial.print("\tStatus: ");
