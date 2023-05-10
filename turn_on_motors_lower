@@ -1,0 +1,17 @@
+int onMotors(Servo A, Servo B)
+{
+ int valA = 40;
+
+  while(valA < 89)
+  {
+    servo2.write(valA);
+    servo1.write(valA + 40);
+    Serial.println(valA);
+    Serial.println((valA));
+    delay(400);
+    
+    valA+=1;
+
+  }
+  return 0;
+}
